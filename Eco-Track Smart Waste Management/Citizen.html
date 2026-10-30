@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track | Citizen Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="citizen-app">
+        
+        <header class="citizen-header">
+            <div>
+                <h1>Eco-Track</h1>
+                <p style="margin: 2px 0 0; color: var(--text-muted); font-size: 0.85rem;">Citizen Portal</p>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="#" class="active">Report Issue</a>
+                <a href="#">My Reports</a>
+                <a href="#">Guidelines</a>
+            </nav>
+        </header>
+
+        <main class="citizen-main">
+            
+            <div class="info-panel">
+                <h2>Help keep our city clean.</h2>
+                <p>Use this portal to report overflowing bins, illegal dumping, or damaged infrastructure directly to the municipal authorities.</p>
+                <p>Your reports are sent in real-time, helping optimize truck routes and keeping our streets sanitary.</p>
+                <div style="margin-top: 2rem; padding: 1rem; background: #e0f2fe; border-radius: 8px; color: #0369a1;">
+                    <strong>📍 Location Services</strong>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem;">Please ensure your GPS is enabled so authorities can pinpoint the exact location of the waste incident.</p>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <div class="card">
+                    <label for="category">Issue Category</label>
+                    <select id="category" class="app-input">
+                        <option value="overflow">Overflowing Bin</option>
+                        <option value="dumping">Illegal Dumping</option>
+                        <option value="damage">Damaged Bin</option>
+                    </select>
+
+                    <label for="location">Location</label>
+                    <input type="text" id="location" class="app-input" placeholder="Fetching GPS..." value="Current Location" readonly>
+
+                    <label for="notes">Additional Details</label>
+                    <textarea id="notes" class="app-input" rows="4" placeholder="Describe what you see..."></textarea>
+
+                    <label for="camera">Attach Photo</label>
+                    <input type="file" id="camera" class="app-input" accept="image/*">
+
+                    <button onclick="alert('Submitted successfully')" class="btn-primary" style="margin-top: 15px;">Submit Report</button>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </div>
+            <div class="nav-item active">
+                <span class="nav-icon">📸</span>
+                <span>Report</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>History</span>
+            </div>
+        </nav>
+        
+    </div>
+</body>
+</html>

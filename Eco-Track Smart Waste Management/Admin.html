@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-app">
+        <aside class="sidebar">
+            <h2>Eco-Track Admin</h2>
+            <div class="side-link active">📊 Dashboard</div>
+            <div class="side-link">🗺️ Live Map</div>
+            <div class="side-link">🚛 Fleet Routes</div>
+            <div class="side-link">⚙️ Settings</div>
+        </aside>
+
+        <main class="admin-main">
+            <header style="margin-bottom: 2rem;">
+                <h1 style="margin: 0;">System Overview</h1>
+                <p style="margin: 5px 0 0; color: var(--text-muted);">Real-time monitoring</p>
+            </header>
+
+            <div class="stats-grid">
+                <div class="card">
+                    <label>Total Bins Monitored</label>
+                    <div style="font-size: 2.5rem; font-weight: 700;">1,204</div>
+                </div>
+                <div class="card">
+                    <label>Critical Fill Levels</label>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--danger);">14</div>
+                </div>
+                <div class="card">
+                    <label>New Reports</label>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning);">8</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1rem;">Live Bin Status</h3>
+            <div class="card" style="padding: 0;">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bin ID</th>
+                                <th>Zone</th>
+                                <th>Fill Level</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#BIN-892</td>
+                                <td>Commercial St.</td>
+                                <td>95%</td>
+                                <td><span class="status-pill pill-danger">Action Required</span></td>
+                            </tr>
+                            <tr>
+                                <td>#BIN-104</td>
+                                <td>Residential A</td>
+                                <td>32%</td>
+                                <td><span class="status-pill pill-success">Optimal</span></td>
+                            </tr>
+                            <tr>
+                                <td>#BIN-236</td>
+                                <td>Industrial Zone</td>
+                                <td>78%</td>
+                                <td><span class="status-pill pill-warning">Warning</span></td>
+                            </tr>
+                              <tr>
+                                <td>#BIN-093</td>
+                                <td>Tech Park South</td>
+                                <td>18%</td>
+                                <td><span class="status-pill pill-low">Low Fill</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

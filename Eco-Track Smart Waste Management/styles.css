@@ -1,0 +1,227 @@
+/* --- Global App Settings --- */
+:root {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --surface: #ffffff;
+    --background: #f3f4f6;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --low: #0080ff;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+}
+
+/* --- Reusable Components --- */
+.card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover { background: var(--primary-dark); }
+
+.app-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #f9fafb;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+label { font-weight: 500; font-size: 0.9rem; color: var(--text-muted); }
+/* =========================================
+   CITIZEN PORTAL (MOBILE + DESKTOP)
+========================================= */
+.citizen-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background);
+}
+
+/* Header adapts for desktop */
+.citizen-header {
+    background: var(--surface);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.citizen-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.desktop-nav {
+    display: none; /* Hidden on mobile */
+    gap: 1.5rem;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.desktop-nav a:hover, .desktop-nav a.active {
+    color: var(--primary);
+}
+
+/* Main Content Area */
+.citizen-main {
+    padding: 1.5rem;
+    flex-grow: 1;
+    padding-bottom: 80px; /* Space for mobile nav */
+}
+
+.info-panel {
+    margin-bottom: 2rem;
+}
+
+.info-panel h2 { margin-top: 0; }
+.info-panel p { color: var(--text-muted); line-height: 1.5; }
+
+.form-panel .card {
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+/* --- Laptop & Desktop Adjustments --- */
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex; /* Show top nav on desktop */
+    }
+    
+    .bottom-nav {
+        display: none !important; /* Hide bottom nav on desktop */
+    }
+
+    .citizen-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        max-width: 1000px;
+        margin: 2rem auto;
+        align-items: center;
+        padding-bottom: 2rem; /* Remove mobile padding */
+    }
+
+    .info-panel {
+        margin-bottom: 0;
+    }
+    
+    .info-panel h2 {
+        font-size: 2.5rem;
+        color: var(--text-main);
+    }
+}
+
+/* =========================================
+   ADMIN DASHBOARD RESPONSIVE LAYOUT
+========================================= */
+.admin-app {
+    display: flex;
+    flex-direction: column; /* Mobile first: stack vertically */
+    height: 100vh;
+}
+
+.sidebar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem;
+    display: flex;
+    overflow-x: auto; /* Scroll horizontally on mobile */
+    white-space: nowrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar h2 { color: var(--primary); margin: 0; padding-right: 1rem; font-size: 1.2rem; }
+
+.side-link {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.side-link.active { background: var(--primary); color: white; }
+
+.admin-main { padding: 1.5rem; overflow-y: auto; flex-grow: 1; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Tablet & Laptop Adjustments */
+@media (min-width: 768px) {
+    .admin-app { flex-direction: row; } /* Side-by-side on laptop */
+    
+    .sidebar {
+        flex-direction: column;
+        width: 260px;
+        border-right: 1px solid var(--border);
+        border-bottom: none;
+        overflow-x: hidden;
+        align-items: stretch;
+        padding: 2rem 1rem;
+    }
+
+    .sidebar h2 { margin-bottom: 2rem; padding-left: 1rem; font-size: 1.5rem; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columns on laptop */
+    .admin-main { padding: 2rem 3rem; }
+}
+
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto; /* Allows table scrolling on small screens */
+    width: 100%;
+}
+
+table { width: 100%; border-collapse: collapse; min-width: 600px; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: #f9fafb; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; }
+.status-pill { padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.pill-danger { background: #fee2e2; color: var(--danger); }
+.pill-success { background: #d1fae5; color: var(--primary-dark); }
+.pill-warning { background: #fef3c7; color: var(--warning); }
+.pill-low { background: #afd7fb; color: var(--low); }
